@@ -81,18 +81,21 @@ actually support and can verify; this repo currently has a phone set.
 - **App access:** mark that part of the app requires sign-in. Enter a
   dedicated review account's username/password in the **private Play Console
   fields**, plus instructions to view sample tasks and test alerts. Keep
-  needed sample machines/agents online during review. The public landing
+  a second disposable account available for reviewers to test permanent
+  account deletion without losing the main review account. Keep needed sample
+  machines/agents online during review. The public landing
   page is not signed-in dashboard access; there is no built-in demo.
 - **Privacy policy and Data safety:** publish the policy URL, then audit the
   final app *and hosted dashboard/backend*. Include account email/profile,
   tasks/messages, connected machine/repository data, uploads, device ID,
   FCM token, and connected providers. Answer collection, sharing, encryption
   in transit, retention, and deletion from actual behavior.
-- **Account deletion:** accounts are manually provisioned. The Account page
-  links to an email deletion-request page. Describe this accurately if Play
-  asks about account creation/deletion and verify the public URL. Do not
-  claim immediate or in-app self-service deletion. Confirm the actual account
-  model and request flow meet the current Play rule.
+- **Account deletion:** after the new frontend and backend changes are shipped,
+  signed-in users can delete their account from Account after confirming their
+  email and password. Test this with a disposable account. The public URL
+  above still offers an email request route for people who cannot sign in;
+  Play requires an external web route even when deletion is available in-app.
+  State that copies on users' own machines or external providers may remain.
 - **Ads, target audience, and content rating:** answer from the real release
   and intended users. No ad SDK appears in the Flutter pubspec, but check the
   hosted dashboard too. Complete any other declarations the console shows
@@ -111,7 +114,8 @@ the production service.
 
 1. Upload the signed production AAB to **Test and release → Testing →
    Internal testing**, configure testers, and install from Play. Check sign-in,
-   attachments, external links, deletion link, icon, and FCM delivery.
+   attachments, external links, account deletion with a disposable account,
+   icon, and FCM delivery.
 2. If this is a **personal** Play developer account created after **13
    November 2023**, run the required **closed test with at least 12 testers
    continuously opted in for at least 14 days**, then apply for production

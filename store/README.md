@@ -50,12 +50,15 @@ submission. Replace any image whose layout or safe area differs from the app.
    browser rendering does not capture native safe areas or system chrome.
    Use a dedicated review account with sample tasks and no private data for
    any replacement captures. Keep the final files in the same directories.
-2. Provide reviewers working account credentials and any machine resources
-   needed to exercise the app. There is currently no built-in demo mode.
-3. Verify the Account page's deletion-request link in the final app. The
-   public page offers an email route; there is no direct deletion action.
-   Confirm the stores' account-deletion answers reflect manual account
-   provisioning and this request flow.
+2. Provide reviewers a working main account, a separate disposable account
+   for testing permanent deletion, and any machine resources needed to
+   exercise the app. There is currently no built-in demo mode. Enter both
+   accounts' credentials only in the private store review fields.
+3. After shipping the new account-deletion endpoint and Account page, verify
+   direct deletion using a disposable account in the final app. Confirm its
+   backend rows, uploaded files, machine connections, and account branches are
+   removed. The public page offers an email fallback for users who cannot
+   sign in; verify that route too.
 4. Review all three public pages, especially the privacy policy's operator,
    retention, and provider disclosures, against the production service.
    Publish this repo with GitHub Pages, then open each URL in a private browser.

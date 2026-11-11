@@ -20,10 +20,9 @@ or App Store Connect. Build the `prod` flavor of `../delivery-app`.
    notifications** and **Background fetch**. Confirm the `prod` scheme uses
    `app.iowetea.delivery` and a matching distribution profile/certificate.
 4. Confirm the *signed Release-prod archive* has an `aps-environment`
-   entitlement of `production`. The current source `Runner.entitlements`
-   says `development`; do not assume the uploaded archive is correct without
-   checking its signed entitlements. Refresh provisioning after changing
-   capabilities.
+   entitlement of `production`. The source `Runner.entitlements` now says
+   `production`, but the uploaded archive's signed entitlement still needs
+   checking. Refresh provisioning after changing capabilities.
 5. In **Apple Developer → Keys**, create an APNs authentication key with APNs
    enabled. Download the `.p8` once and record the Key ID and Team ID
    privately. In **Firebase console → Project settings → Cloud Messaging →
@@ -102,15 +101,14 @@ data or private repository names.
   account email/profile, task text/messages, machine/repository information,
   uploads, device identifier, FCM token, and connected providers. State
   actual collection, sharing, purposes, tracking, and data linked to users.
-- **Account deletion:** accounts are manually provisioned. The Account page
-  has a button linking to an email deletion-request page; there is no in-app
-  deletion action. Apple's rule applies to apps that support account creation,
-  including account creation outside the app. Its guidance allows manual
-  processing time but says apps outside highly regulated industries should not
-  require an email or support flow when the rule applies. Confirm with App
-  Review whether manual provisioning keeps this app outside that requirement;
-  otherwise implement a direct deletion-request flow before submission. Do not
-  claim immediate or self-service deletion.
+- **Account deletion:** after the new frontend and backend changes are shipped,
+  Account → Delete account asks the signed-in user to confirm their email and
+  password, then removes the account, backend data, uploaded files, connected
+  machines, and account branches. Test this with a disposable account in the
+  final build; the action cannot be undone. The public deletion page retains
+  an email route for users who cannot sign in. Copies on users' own machines
+  or external providers are outside Delivery's server cleanup. Do not claim
+  that those copies are automatically deleted.
 - **Export compliance:** answer encryption questions for the actual build and
   its HTTPS/Firebase traffic. Set any Info.plist exemption key only after
   determining the correct classification.
@@ -118,9 +116,20 @@ data or private repository names.
   and international phone. Select **Sign-in required** and enter a working
   dedicated review username/password in App Store Connect only. Keep sample
   projects/tasks and any needed connected resources available throughout
-  review. In Notes, explain how to reach Tasks and test notifications. Supply
-  a stable review setup or supporting video for features needing external
-  machines. The public landing page is not a demo of the signed-in dashboard.
+  review. Create a **second disposable review account** so Apple can test
+  Account → Delete account without destroying the main review setup. Put its
+  credentials only in the private Notes field. Supply a stable review setup or
+  supporting video for features needing external machines. The public landing
+  page is not a demo of the signed-in dashboard.
+
+Suggested **Notes for Review** (replace bracketed details after testing the
+uploaded build; enter credentials only in App Store Connect):
+
+```text
+Delivery opens the hosted development dashboard. Use the main review account in the Sign-in required fields to view sample projects and tasks. Open Tasks to inspect the task page. On Account, enable push notifications on a physical iPhone; a sample task can send a message or become blocked to demonstrate an alert. [Describe the exact sample task and any machine steps that are available to the reviewer.]
+
+Account deletion is at Account → Delete account. To test it, use the separate disposable account listed here: [enter its username and password in this private field]. Confirm its email and password in the deletion dialog. This permanently deletes that disposable account; the main review account remains available. The public deletion page also offers an email route for users unable to sign in.
+```
 
 Publish this repository through GitHub Pages before entering the URLs. Open
 the support, privacy, and deletion pages in a private browser, and review
@@ -130,7 +139,7 @@ production service.
 ## 5. Upload, test, and submit
 
 1. On the Mac, update the version/build number, install Flutter/CocoaPods
-   dependencies, and test login, attachments, external links, deletion link,
+   dependencies, and test login, attachments, external links, account deletion,
    icon, and notifications on physical iPhone; check iPad layout too.
 2. From `../delivery-app`, run `flutter build ipa --flavor prod --release`,
    or archive the `prod` scheme in Xcode. Validate bundle ID, production
