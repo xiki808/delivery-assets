@@ -6,8 +6,8 @@ account owner, and availability in App Store Connect.
 | Field | Value |
 | --- | --- |
 | Name | `Delivery` |
-| Bundle ID | `com.iowetea.delivery` |
-| SKU | `com.iowetea.delivery` (suggested internal value) |
+| Bundle ID | `app.iowetea.delivery` |
+| SKU | `app.iowetea.delivery` (suggested internal value) |
 | Subtitle | `Your tasks, wherever you are` |
 | Primary category | Productivity |
 | Keywords | `development,tasks,projects,agents,workflow,notifications` |
@@ -28,11 +28,13 @@ A Delivery account is required. Contact the Delivery team for access.
 ```
 
 The store icon is included in the signed iOS app. `icon-1024.png` is a reference
-copy. Capture screenshots from the signed app using a dedicated sample account.
-App Store Connect requires at least one iPhone Dynamic Island medium screenshot
-and a 13-inch iPad screenshot; this app supports iPadOS. Check the current
+copy. The six `iphone/` images are 1206 × 2622 and the six `ipad/` images are
+2064 × 2752. They render the actual Vue dashboard with fictional data in a
+browser, but are not signed-app captures. Check them against the iPhone and
+iPad app on your Mac; replace them with native captures if the safe areas or
+layout differ. Check the current
 [accepted sizes](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications)
-for the capture devices. Use actual app screens and no private task content.
+before upload, and keep private task content out of the final images.
 
 ## Review and disclosures
 

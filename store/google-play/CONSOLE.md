@@ -6,7 +6,7 @@ signed production build and Play Console before submission.
 | Field | Value |
 | --- | --- |
 | App name | `Delivery` |
-| Package name | `com.iowetea.delivery` |
+| Package name | `app.iowetea.delivery` |
 | Short description | `Follow development tasks and respond when your agent needs you.` |
 | App type | App |
 | Category | Productivity |
@@ -27,9 +27,11 @@ The dashboard also lets you review projects, machines, agents, and task history.
 A Delivery account is required. Account access is currently arranged through the Delivery team; this app does not offer self-service sign-up.
 ```
 
-Upload `icon-512.png` and `feature-graphic.png`. Capture phone screenshots from
-the signed app using a dedicated sample account. The screenshots must show
-current screens and avoid private tasks or repository details.
+Upload `icon-512.png` and `feature-graphic.png`. The six 1080 × 1920 images in
+`phone/` show the current Vue dashboard with fictional sample data. Check them
+against a signed Android build before upload, and replace them with device
+captures if the native layout differs. Keep private tasks and repository
+details out of final screenshots.
 
 ## App content and review
 

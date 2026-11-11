@@ -6,7 +6,7 @@ is `../delivery-app`; the dashboard is `../delivery-frontend`; the API is
 `../delivery-backend`.
 
 The store package and bundle ID for the production app is
-`com.iowetea.delivery`. Store listing claims must describe current behavior:
+`app.iowetea.delivery`. Store listing claims must describe current behavior:
 the app displays the hosted Delivery dashboard and can register a phone for
 task push notifications. Account creation is currently manual, the dashboard
 links to an account deletion request page, and there is no review demo mode.
