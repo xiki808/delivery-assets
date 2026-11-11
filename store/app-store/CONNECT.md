@@ -1,24 +1,84 @@
 # App Store Connect worksheet — Delivery
 
-These fields are proposed for the production iOS app. Confirm the final build,
-account owner, and availability in App Store Connect.
+Prepared for a **new** iOS app, bundle ID `app.iowetea.delivery`. This is a
+copy-and-check guide, not a record of values already saved in Apple Developer
+or App Store Connect. Build the `prod` flavor of `../delivery-app`.
 
-| Field | Value |
+## 1. Apple Developer, signing, and push notifications
+
+1. Enroll in the Apple Developer Program and accept pending App Store Connect
+   agreements. Decide the actual legal seller and confirm that `Delivery` is
+   available as an app name.
+2. In **Apple Developer → Certificates, Identifiers & Profiles → Identifiers
+   → + → App IDs → App**, register an **explicit** ID
+   `app.iowetea.delivery`. Enable **Push Notifications** for that ID. If
+   distributing staging, register `app.iowetea.delivery.staging` separately
+   and enable Push Notifications there too.
+3. On the Mac, open `../delivery-app/ios/Runner.xcworkspace`. Under the
+   **Runner** target's **Signing & Capabilities**, select your team and add or
+   confirm **Push Notifications** and **Background Modes** with **Remote
+   notifications** and **Background fetch**. Confirm the `prod` scheme uses
+   `app.iowetea.delivery` and a matching distribution profile/certificate.
+4. Confirm the *signed Release-prod archive* has an `aps-environment`
+   entitlement of `production`. The current source `Runner.entitlements`
+   says `development`; do not assume the uploaded archive is correct without
+   checking its signed entitlements. Refresh provisioning after changing
+   capabilities.
+5. In **Apple Developer → Keys**, create an APNs authentication key with APNs
+   enabled. Download the `.p8` once and record the Key ID and Team ID
+   privately. In **Firebase console → Project settings → Cloud Messaging →
+   Apple app configuration**, upload the key, Key ID, and Team ID to the
+   Firebase project Delivery uses. An APNs auth key supports both development
+   and production.
+6. Register the production iOS app in that Firebase project with bundle ID
+   `app.iowetea.delivery`, then replace
+   `../delivery-app/ios/GoogleService-Info.plist`. Its current bundle ID is
+   old. For staging, register its separate bundle ID and put its plist at
+   `ios/GoogleService-Info-staging.plist`. The backend's Firebase service
+   account must use the same project as these apps. Keep keys and credentials
+   outside this public repository.
+
+There is **no separate push switch in App Store Connect**. The required
+capability is in Apple Developer and Xcode. On a physical iPhone, install a
+signed production build, grant notification permission, sign in, enable task
+alerts on **Account**, then trigger a sample task message or blocked-task
+event. Check foreground, background, closed-app, and notification tap-through
+to the right task. TestFlight is useful for the production APNs path.
+
+## 2. Create the app record
+
+In **App Store Connect → Apps → + → New App**, select **iOS** and enter:
+
+| Field | Value to enter |
 | --- | --- |
-| Name | `Delivery` |
+| Name | `Delivery` (subject to availability) |
+| Primary language | English (UK), if that is your intended listing language |
 | Bundle ID | `app.iowetea.delivery` |
-| SKU | `app.iowetea.delivery` (suggested internal value) |
+| SKU | `app.iowetea.delivery` (suggested internal choice) |
+| User access | Choose the appropriate team access |
+
+Create this record before uploading a build. In **App Information**, choose
+**Productivity** as the proposed primary category and complete content
+rights, age rating, and other required fields. Enter the actual copyright
+holder/year. Set pricing, countries/regions, availability, and release timing.
+Complete EU trader status and any other regional prompts that apply.
+
+## 3. Fill the iOS version and product page
+
+| Field | Value to enter |
+| --- | --- |
 | Subtitle | `Your tasks, wherever you are` |
-| Primary category | Productivity |
 | Keywords | `development,tasks,projects,agents,workflow,notifications` |
 | Support URL | `https://xiki808.github.io/delivery-assets/web-documents/support.html` |
 | Privacy Policy URL | `https://xiki808.github.io/delivery-assets/web-documents/privacy-policy.html` |
-| Marketing URL | `https://delivery.iowetea.com` |
+| Marketing URL (optional) | `https://delivery.iowetea.com` |
+| Privacy Choices URL (optional, if offered) | `https://xiki808.github.io/delivery-assets/web-documents/account-deletion.html` |
+| Version | Match the signed build's `CFBundleShortVersionString` |
 
-Description:
+Description (plain text):
 
 ```text
-Stay close to your development work from your iPhone. Delivery opens the same dashboard you use in your browser, so you can follow tasks, read updates, and respond when an agent needs your input.
+Stay close to your development work from your iPhone or iPad. Delivery opens the same dashboard you use in your browser, so you can follow tasks, read updates, and respond when an agent needs your input.
 
 Enable optional task notifications to hear when a task sends a message, becomes blocked, or reaches completion after you request an alert. Tap a notification to return to the relevant task.
 
@@ -27,34 +87,72 @@ Review projects, machines, agents, and task history from one place. Available fe
 A Delivery account is required. Contact the Delivery team for access.
 ```
 
-The store icon is included in the signed iOS app. `icon-1024.png` is a reference
-copy. The six `iphone/` images are 1206 × 2622 and the six `ipad/` images are
-2064 × 2752. They render the actual Vue dashboard with fictional data in a
-browser, but are not signed-app captures. Check them against the iPhone and
-iPad app on your Mac; replace them with native captures if the safe areas or
-layout differ. Check the current
-[accepted sizes](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications)
-before upload, and keep private task content out of the final images.
+Promotional text is optional. Upload the six images in `iphone/`
+(1206 × 2622) and the six in `ipad/` (2064 × 2752), numbered Overview,
+Workflow, System, Tasks, Archive, Account. The store icon is embedded in the
+signed app; `icon-1024.png` is a reference. These images are fictional
+browser previews of the real dashboard, not native app captures. Compare them
+with the signed iPhone/iPad app and replace any whose safe area or layout
+differs. Check Apple's accepted sizes when uploading. Do not show real task
+data or private repository names.
 
-## Review and disclosures
+## 4. Privacy, compliance, and review access
 
-- Supply an active review account with sample projects/tasks and enough
-  connected resources to exercise the app. Add real contact name, email, and
-  phone in App Store Connect. The app has no full demo mode.
-- Verify that the Account page opens the deletion request page. Accounts are
-  provisioned manually and the request is handled by email; there is no
-  direct self-service deletion action.
-- Complete App Privacy from observed transmissions and retention, including
-  dashboard data, FCM token, device ID, uploaded files, and connected providers.
-- Answer encryption/export, age rating, content rights, territories, and trader
-  information for the actual release and legal owner. Do not guess these from
-  this worksheet.
-- Confirm the Firebase and APNs setup on the signed iOS build; this repo does
-  not contain the signing or production Firebase credentials.
+- **App Privacy:** answer from the final app *and* hosted dashboard/backend:
+  account email/profile, task text/messages, machine/repository information,
+  uploads, device identifier, FCM token, and connected providers. State
+  actual collection, sharing, purposes, tracking, and data linked to users.
+- **Account deletion:** accounts are manually provisioned. The Account page
+  has a button linking to an email deletion-request page; there is no in-app
+  deletion action. Apple's rule applies to apps that support account creation,
+  including account creation outside the app. Its guidance allows manual
+  processing time but says apps outside highly regulated industries should not
+  require an email or support flow when the rule applies. Confirm with App
+  Review whether manual provisioning keeps this app outside that requirement;
+  otherwise implement a direct deletion-request flow before submission. Do not
+  claim immediate or self-service deletion.
+- **Export compliance:** answer encryption questions for the actual build and
+  its HTTPS/Firebase traffic. Set any Info.plist exemption key only after
+  determining the correct classification.
+- **App Review Information:** enter a real first/last name, monitored email,
+  and international phone. Select **Sign-in required** and enter a working
+  dedicated review username/password in App Store Connect only. Keep sample
+  projects/tasks and any needed connected resources available throughout
+  review. In Notes, explain how to reach Tasks and test notifications. Supply
+  a stable review setup or supporting video for features needing external
+  machines. The public landing page is not a demo of the signed-in dashboard.
 
-Never store review credentials in this public repository. Enter them only in
-App Store Connect.
+Publish this repository through GitHub Pages before entering the URLs. Open
+the support, privacy, and deletion pages in a private browser, and review
+their operator, retention, processor, and deletion statements against the
+production service.
 
-Official references: [product page fields](https://developer.apple.com/help/app-store-connect/reference/app-information/platform-version-information),
-[App Privacy](https://developer.apple.com/app-store/app-privacy-details/),
-[App Review guidelines](https://developer.apple.com/app-store/review/guidelines/).
+## 5. Upload, test, and submit
+
+1. On the Mac, update the version/build number, install Flutter/CocoaPods
+   dependencies, and test login, attachments, external links, deletion link,
+   icon, and notifications on physical iPhone; check iPad layout too.
+2. From `../delivery-app`, run `flutter build ipa --flavor prod --release`,
+   or archive the `prod` scheme in Xcode. Validate bundle ID, production
+   APNs entitlement, Firebase plist, icon, version, and signing. Upload via
+   Xcode Organizer or Transporter, then select the processed build on the
+   App Store version page.
+3. Test the production build through TestFlight, including push delivery and
+   tap-through. Complete any TestFlight compliance/beta review prompts.
+4. Finish all required product-page, privacy, and compliance fields. Choose
+   release timing, click **Add for Review**, then **Submit for Review** in the
+   draft submission. Monitor review messages and release status.
+
+## Official references
+
+- [Register an App ID and capabilities](https://developer.apple.com/help/account/identifiers/register-an-app-id)
+- [APNs authentication keys](https://developer.apple.com/help/account/capabilities/communicate-with-apns-using-authentication-tokens)
+- [Firebase Cloud Messaging for Flutter](https://firebase.google.com/docs/cloud-messaging/flutter/get-started)
+- [Create an App Store Connect app record](https://developer.apple.com/help/app-store-connect/create-an-app-record/add-a-new-app)
+- [App version information](https://developer.apple.com/help/app-store-connect/reference/app-information/platform-version-information)
+- [Screenshot specifications](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications)
+- [App Privacy details](https://developer.apple.com/app-store/app-privacy-details/)
+- [App Review guidelines](https://developer.apple.com/app-store/review/guidelines/)
+- [Offering account deletion in your app](https://developer.apple.com/support/offering-account-deletion-in-your-app/)
+- [Flutter iOS release guide](https://docs.flutter.dev/deployment/ios)
+- [Submit an app](https://developer.apple.com/help/app-store-connect/manage-submissions-to-app-review/submit-an-app)
