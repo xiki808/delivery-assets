@@ -70,11 +70,14 @@ A Delivery account is required. Account access is currently arranged through the
 
 Upload `icon-512.png`, `feature-graphic.png`, and the six images in
 `phone/` in numbered order: Overview, Workflow, System, Tasks, Archive,
-Account. They are 1080 × 1920 fictional browser previews of the real
-dashboard. Compare them with the signed Android app and replace any whose
-safe area or layout differs. Keep real tasks and private repository names out
-of final screenshots. Add tablet/Chromebook sets only for form factors you
-actually support and can verify; this repo currently has a phone set.
+Account. The matching six images in `tablet-7/` (1206 × 2144),
+`tablet-10/` (1440 × 2560), and `chromebook/` (1920 × 1080) are available
+for Play's **7-inch tablet**, **10-inch tablet**, and **Chromebook** graphics
+sections. They are fictional Chromium previews of the real dashboard, not
+captures of the signed Android app. Verify the production AAB actually runs
+and lays out correctly on each advertised form factor; replace any preview
+whose layout or safe area differs. Keep real tasks and private repository
+names out of final screenshots.
 
 ## 3. Complete Policy → App content
 

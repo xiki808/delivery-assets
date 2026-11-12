@@ -113,16 +113,20 @@ await cdp.call("Page.addScriptToEvaluateOnNewDocument", { source: fixture });
 const pages = ["overview", "workflow", "system", "tasks", "archive", "account"];
 const captures = [
   { device: "google-play/phone", width: 360, height: 640, scale: 3, mobile: true, pages },
+  { device: "google-play/tablet-7", width: 603, height: 1072, scale: 2, mobile: true, pages },
+  { device: "google-play/tablet-10", width: 720, height: 1280, scale: 2, mobile: true, pages },
+  { device: "google-play/chromebook", width: 1920, height: 1080, scale: 1, mobile: false, pages },
   { device: "app-store/iphone", width: 402, height: 874, scale: 3, mobile: true, pages },
   { device: "app-store/ipad", width: 1032, height: 1376, scale: 2, mobile: true, pages },
 ];
 
 for (const capture of captures) {
+  if (process.env.CAPTURE_DEVICE && capture.device !== process.env.CAPTURE_DEVICE) continue;
   await cdp.call("Emulation.setDeviceMetricsOverride", {
     width: capture.width, height: capture.height,
     deviceScaleFactor: capture.scale, mobile: capture.mobile,
   });
-  await cdp.call("Emulation.setTouchEmulationEnabled", { enabled: true });
+  await cdp.call("Emulation.setTouchEmulationEnabled", { enabled: capture.mobile });
   for (const [index, page] of capture.pages.entries()) {
     if (process.env.CAPTURE_PAGE && page !== process.env.CAPTURE_PAGE) continue;
     await cdp.call("Page.navigate", { url: `${dashboardBase}/${page}` });

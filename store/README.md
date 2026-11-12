@@ -9,15 +9,20 @@ holds the source and store artwork.
 | `google-play/icon-512.png` | Play listing icon, 512 × 512 opaque PNG |
 | `google-play/feature-graphic.png` | Play feature graphic, 1024 × 500 opaque PNG |
 | `app-store/icon-1024.png` | Reference for the icon embedded in the iOS build |
+| `app-store/header.png` | Optional App Store product-page header, 3840 × 1646 opaque PNG |
+| `app-store/search-results.png` | Optional App Store search artwork, 3840 × 2560 opaque PNG |
 | `google-play/phone/*.png` | Six 1080 × 1920 dashboard previews |
+| `google-play/tablet-7/*.png` | Six 1206 × 2144 dashboard previews |
+| `google-play/tablet-10/*.png` | Six 1440 × 2560 dashboard previews |
+| `google-play/chromebook/*.png` | Six 1920 × 1080 dashboard previews |
 | `app-store/iphone/*.png` | Six 1206 × 2622 dashboard previews |
 | `app-store/ipad/*.png` | Six 2064 × 2752 dashboard previews |
 | `google-play/CONSOLE.md` | Copy-ready Play listing and content checklist |
 | `app-store/CONNECT.md` | Copy-ready App Store listing and review checklist |
 | `../web-documents/*.html` | Public policy, support, and deletion URLs |
 
-The graphics come from `brand/icon.svg` and `brand/feature-graphic.svg`. The
-icon uses the web mark from `delivery-frontend/src/components/public/PublicIcon.vue`
+The graphics come from `brand/*.svg`. The icon uses the web mark from
+`delivery-frontend/src/components/public/PublicIcon.vue`
 and the web's default green accent (`oklch(68% 0.115 155)` / `#57ad79`). To
 regenerate with ImageMagick:
 
@@ -25,7 +30,7 @@ regenerate with ImageMagick:
 bash store/generate.sh
 ```
 
-The 18 screenshots render the actual Vue dashboard in Chromium with fictional
+The 36 screenshots render the actual Vue dashboard in Chromium with fictional
 sample tasks. They are browser previews, not captures of the signed Flutter app.
 Each device folder contains the same six views: Overview, Workflow, System,
 Tasks, Archive, and Account, numbered in that order.
@@ -38,10 +43,13 @@ cd ../delivery-frontend && npm run dev -- --host 127.0.0.1 --port 5190
 chromium --headless=new --no-sandbox --remote-debugging-port=9223 --user-data-dir=/tmp/delivery-store-capture-chromium about:blank
 # In another terminal, from delivery-assets:
 node store/capture-dashboard.mjs
+# To recapture one set: CAPTURE_DEVICE=google-play/tablet-10 node store/capture-dashboard.mjs
 ```
 
-Compare these previews with the signed app on Android and iPad/iPhone before
-submission. Replace any image whose layout or safe area differs from the app.
+Compare these previews with the signed app on Android, Chromebook, and
+iPad/iPhone before submission. The large-screen browser previews are not proof
+that the Flutter Android build supports those form factors. Replace any image
+whose layout or safe area differs from the app.
 
 ## Still needed before submission
 

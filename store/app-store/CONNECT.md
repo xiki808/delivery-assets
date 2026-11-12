@@ -95,6 +95,13 @@ with the signed iPhone/iPad app and replace any whose safe area or layout
 differs. Check Apple's accepted sizes when uploading. Do not show real task
 data or private repository names.
 
+Apple's optional **Header and Search Results** creative placements use
+`header.png` (3840 × 1646) and `search-results.png` (3840 × 2560). In the
+App Store version page, open **Product Page Information → Header and Search
+Results**, then upload each file to its matching tab. Preview both placements
+in App Store Connect before submitting. These images are separate from the
+screenshots above and are not required to publish the app.
+
 ## 4. Privacy, compliance, and review access
 
 - **App Privacy:** answer from the final app *and* hosted dashboard/backend:
@@ -109,9 +116,15 @@ data or private repository names.
   an email route for users who cannot sign in. Copies on users' own machines
   or external providers are outside Delivery's server cleanup. Do not claim
   that those copies are automatically deleted.
-- **Export compliance:** answer encryption questions for the actual build and
-  its HTTPS/Firebase traffic. Set any Info.plist exemption key only after
-  determining the correct classification.
+- **Export compliance:** after uploading the iOS build, open **TestFlight →
+  Builds → iOS → the build**. If it shows **Missing Compliance**, choose
+  **Manage** or **Provide Export Compliance Information** and answer for the
+  final build, including HTTPS and Firebase. **App Information → App Encryption
+  Documentation → +** can open a documentation form beginning with an app
+  purpose field; do not create a documentation record just to clear a build's
+  Missing Compliance status. If Apple's build questionnaire determines that
+  documentation is required, follow its prompt to that form. Set an Info.plist
+  exemption key only after determining the correct classification.
 - **App Review Information:** enter a real first/last name, monitored email,
   and international phone. Select **Sign-in required** and enter a working
   dedicated review username/password in App Store Connect only. Keep sample
