@@ -16,20 +16,27 @@ Build the `prod` flavor of `../delivery-app`.
    and use a configuration containing both clients or flavor-specific files.
    The backend's Firebase service account must use the same project as the
    Android app so it can send FCM messages.
-3. Create a private **upload keystore** and change
-   `../delivery-app/android/app/build.gradle` to use its release signing
-   config. The current release build uses the **debug key**; it is not ready
-   for Play. Back up the upload key/passwords securely and enroll in
-   **Play App Signing** for the first release.
+3. Create a private **upload keystore** and copy
+   `../delivery-app/android/key.properties.example` to the ignored
+   `../delivery-app/android/key.properties`, then set its values. Store builds
+   use that release signing configuration; local release APKs without the file
+   still use the debug key and are not ready for Play. Back up the upload
+   key/passwords securely. If you do not have an upload key yet, generate one
+   with `keytool -genkeypair -v -keystore /private/path/delivery-upload.jks
+   -alias delivery-upload -keyalg RSA -keysize 2048 -validity 10000`; it will
+   prompt for passwords. Use that absolute keystore path in `key.properties`.
+   Enroll in **Play App Signing** for the first release.
 4. Check the merged manifest and release build: `POST_NOTIFICATIONS`,
    notification channel/icon, Internet permission, target SDK, version
    code/name, and the `prod` package ID. There is **no separate Play
    Console push capability switch**. Android push uses Firebase Cloud
    Messaging and, on supported devices, Google Play services. The app asks
    for notification permission during its notification flow.
-5. From `../delivery-app`, run `flutter build appbundle --flavor prod
-   --release`. Install the AAB through an internal Play test on a physical
-   Android phone. Sign in, enable task alerts on **Account**, trigger a sample
+5. From `../delivery-app`, run `scripts/build-store.sh android` to increment
+   the build number and produce the signed production AAB. On macOS,
+   `scripts/build-store.sh` builds both the AAB and iOS IPA. Install the AAB
+   through an internal Play test on a physical Android phone. Sign in, enable
+   task alerts on **Account**, trigger a sample
    task message or blocked-task event, and check foreground, background,
    closed-app, and notification tap-through behavior.
 

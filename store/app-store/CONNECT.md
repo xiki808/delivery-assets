@@ -30,9 +30,11 @@ or App Store Connect. Build the `prod` flavor of `../delivery-app`.
    Firebase project Delivery uses. An APNs auth key supports both development
    and production.
 6. Register the production iOS app in that Firebase project with bundle ID
-   `app.iowetea.delivery`, then replace
-   `../delivery-app/ios/GoogleService-Info.plist`. Its current bundle ID is
-   old. For staging, register its separate bundle ID and put its plist at
+   `app.iowetea.delivery`, then verify
+   `../delivery-app/ios/GoogleService-Info.plist` was downloaded for that app.
+   Its current `BUNDLE_ID` matches, but the plist must also belong to the
+   same Firebase project as the backend. For staging, register its separate
+   bundle ID and put its plist at
    `ios/GoogleService-Info-staging.plist`. The backend's Firebase service
    account must use the same project as these apps. Keep keys and credentials
    outside this public repository.
@@ -154,8 +156,10 @@ production service.
 1. On the Mac, update the version/build number, install Flutter/CocoaPods
    dependencies, and test login, attachments, external links, account deletion,
    icon, and notifications on physical iPhone; check iPad layout too.
-2. From `../delivery-app`, run `flutter build ipa --flavor prod --release`,
-   or archive the `prod` scheme in Xcode. Validate bundle ID, production
+2. From `../delivery-app` on macOS, run `scripts/build-store.sh` for both
+   stores, or `scripts/build-store.sh ios` for only the IPA. This increments
+   the `pubspec.yaml` build number. You can also archive the `prod` scheme in
+   Xcode. Validate bundle ID, production
    APNs entitlement, Firebase plist, icon, version, and signing. Upload via
    Xcode Organizer or Transporter, then select the processed build on the
    App Store version page.
