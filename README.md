@@ -1,6 +1,6 @@
-# Delivery assets
+# IOweTea Studio assets
 
-Public static files and store submission material for the Delivery mobile app
+Public static files and store submission material for the IOweTea Studio mobile app
 (`../delivery-app`). Publish this repository from the root of `main` with
 GitHub Pages. The public base URL is
 `https://xiki808.github.io/delivery-assets/` once Pages is enabled.
@@ -16,3 +16,5 @@ Start with [store/README.md](store/README.md). It records the assets already
 prepared and the remaining submission checks. Public URLs will return 404 until
 GitHub Pages is enabled and these files are published. Review the legal pages
 against production data handling before entering their URLs in either store.
+The assets are staged for the new brand; the app UI, screenshots, and store
+listing worksheets still use Delivery until the product rename is completed.

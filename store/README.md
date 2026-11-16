@@ -21,14 +21,22 @@ holds the source and store artwork.
 | `app-store/CONNECT.md` | Copy-ready App Store listing and review checklist |
 | `../web-documents/*.html` | Public policy, support, and deletion URLs |
 
-The graphics come from `brand/*.svg`. The icon uses the web mark from
-`delivery-frontend/src/components/public/PublicIcon.vue`
-and the web's default green accent (`oklch(68% 0.115 155)` / `#57ad79`). To
-regenerate with ImageMagick:
+The icon and promotional graphics use the IOweTea Studio cup mark from
+`brand/studio.svg`. `brand/icon-mark.svg` places it on a transparent square
+using the same cup-and-leaf spacing as the icon. To regenerate its SVG layouts
+and PNGs with ImageMagick:
 
 ```bash
 bash store/generate.sh
 ```
+
+The Play feature graphic and optional App Store creatives repeat the approved
+prompt → forming → finished progression with the line “From prompt to
+project.” The icon marks use the shared cup-and-leaf centering rule.
+
+The screenshots and store listing worksheets still show Delivery. Update and
+review them alongside the app and dashboard rename before submitting a Studio
+listing.
 
 The 36 screenshots render the actual Vue dashboard in Chromium with fictional
 sample tasks. They are browser previews, not captures of the signed Flutter app.

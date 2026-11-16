@@ -1,9 +1,20 @@
-# Delivery Assets Context
+# IOweTea Studio Assets Context
 
 This repository follows the static-file layout of `iowetea/assets`. GitHub
 Pages serves files from the root of `main` with no build step. The Flutter app
 is `../delivery-app`; the dashboard is `../delivery-frontend`; the API is
 `../delivery-backend`.
+
+`brand/studio.svg` is the Studio mark: shared cup, leaf and teabag, a code
+symbol on the teabag, and three landscape workspaces below the cup that progress
+from prompt to forming content to a finished interface. Run
+`bash store/generate.sh` to rebuild the icon and promotional artwork from it.
+The square icon centers the combined cup and leaf with equal opposite margins
+to its border; the handle and Studio workspaces below the cup are excluded from
+that measurement.
+These asset changes are staged ahead of the app and dashboard rename. The 36
+screenshots and console worksheets still show Delivery, so review those with
+the product rollout before publishing a rebranded listing.
 
 The store package and bundle ID for the production app is
 `app.iowetea.delivery`. Store listing claims must describe current behavior:

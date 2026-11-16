@@ -92,10 +92,11 @@ Promotional text is optional. Upload the six images in `iphone/`
 (1206 × 2622) and the six in `ipad/` (2064 × 2752), numbered Overview,
 Workflow, System, Tasks, Archive, Account. The store icon is embedded in the
 signed app; `icon-1024.png` is a reference. These images are fictional
-browser previews of the real dashboard, not native app captures. Compare them
-with the signed iPhone/iPad app and replace any whose safe area or layout
-differs. Check Apple's accepted sizes when uploading. Do not show real task
-data or private repository names.
+browser previews of the dashboard, not captures of the submitted app. For
+resubmission, capture the signed build on physical iPhone/iPad devices with
+safe sample data and replace these previews so the listing shows the app as
+reviewers see it. Check Apple's accepted sizes when uploading. Do not show
+private task data or repository names.
 
 Apple's optional **Header and Search Results** creative placements use
 `header.png` (3840 × 1646) and `search-results.png` (3840 × 2560). In the
@@ -137,14 +138,49 @@ screenshots above and are not required to publish the app.
   supporting video for features needing external machines. The public landing
   page is not a demo of the signed-in dashboard.
 
-Suggested **Notes for Review** (replace bracketed details after testing the
-uploaded build; enter credentials only in App Store Connect):
+For a Guideline 2.1 **Information Needed** resubmission, use the note below.
+Replace every bracketed field with a
+verified value. Apple's Notes field allows 4,000 bytes; keep the final text
+within that limit. Put the main account in the dedicated **Sign-in required**
+fields and the disposable deletion account in the private Notes field. Never
+put credentials in this repository or a publicly accessible recording.
 
 ```text
-Delivery opens the hosted development dashboard. Use the main review account in the Sign-in required fields to view sample projects and tasks. Open Tasks to inspect the task page. On Account, enable push notifications on a physical iPhone; a sample task can send a message or become blocked to demonstrate an alert. [Describe the exact sample task and any machine steps that are available to the reviewer.]
+SCREEN RECORDING: [reviewer-accessible HTTPS video URL]. Captured on physical [device model], [OS version], submitted build [version/build]. Starts at app launch; shows sign-in, sample task and response, Account/notifications, sign-out, and disposable-account deletion. [Include a real push and tap-through if enabled.]
 
-Account deletion is at Account → Delete account. To test it, use the separate disposable account listed here: [enter its username and password in this private field]. Confirm its email and password in the deletion dialog. This permanently deletes that disposable account; the main review account remains available. The public deletion page also offers an email route for users unable to sign in.
+PURPOSE AND AUDIENCE: Delivery lets developers and teams monitor and respond to AI-agent work on connected development machines. The app opens the hosted dashboard and optionally alerts users to task messages, blocked tasks, and requested completion updates. It helps users act on work away from their workstation. Customer accounts are provisioned across organizations; this is not an employee-only app.
+
+ACCESS: Use the main credentials in Sign-in required. There is no in-app registration; Delivery provisions accounts. This [tier] review account contains [sample project/tasks] on [connected machine available during review]. Open Overview > Workflow/Tasks > [task] > Messages; [steps to respond/create a task]. Open Account, enable notifications, and allow the iOS prompt. To trigger and open a push: [exact steps]. Sample files: [none or location]. Extra authentication/setup: [none or steps].
+
+ACCOUNT DELETION: Sign out, then sign in with disposable account [email] / [password]. Open Account > Delete account, enter its email/password, and confirm Delete permanently. The account is deleted and signed out. The main account remains available.
+
+CONTENT AND PAYMENT: Tasks, attachments, and messages are private account workspace content. There is no public feed or user-to-user messaging. There is no in-app purchase, checkout, or self-service upgrade; Delivery assigns account tiers manually.
+
+EXTERNAL SERVICES: Delivery hosted dashboard/API and the connected orchestration machine provide projects/tasks. Firebase Cloud Messaging and Apple Push Notification service provide optional alerts. The review machine's AI runtime is [actual provider/runtime]. Connected repository/store services used here: [names or none]. Delivery backend handles email/password sign-in; there is no social sign-in or payment processor.
+
+REGIONS: Core features work the same in all available regions. Public pages support English, French, Italian, German, and Spanish; the signed-in dashboard is English. Access varies by account tier, not region. [Add any actual regional restrictions.]
+
+REGULATED CONTENT / RIGHTS: Delivery provides no regulated services. Review sample projects/content are [ours / used with permission]. [If other protected material appears, attach authorization documents.]
+
+DEVICE QA: Submitted build tested on physical [device models and OS versions; include iPad].
 ```
+
+Record the **submitted TestFlight build on a physical device running the latest
+available OS**. Start recording before tapping the app icon. Show a complete
+ordinary session, then sign out and use the disposable account for the deletion
+flow. If push is part of the review account's tier, trigger a real alert with a
+connected machine and show where its tap opens. Host the video at a stable link
+that App Review can open without sign-in or an expiring authorization; check it
+in a private browser before resubmitting. Keep real credentials out of the
+video. If the recording consumes the deletion account, create a new one for
+Apple and update the private Notes field.
+
+The source has no public feed or user-to-user messaging. If the submitted
+dashboard exposes shared user content or social interaction beyond the private
+account workspace, verify and record its report/block flows before using the
+content statement above. Likewise, confirm the exact connected services,
+regional availability, review tier, and device QA against the live submitted
+build; source files alone cannot establish those facts.
 
 Publish this repository through GitHub Pages before entering the URLs. Open
 the support, privacy, and deletion pages in a private browser, and review
