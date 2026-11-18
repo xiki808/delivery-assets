@@ -2,7 +2,7 @@
 
 Prepared for a **new** Android app, package `app.iowetea.delivery`. This is
 a copy-and-check guide, not a record of values already saved in Play Console.
-Build the `prod` flavor of `../delivery-app`.
+Build the `prod` flavor of `../app`.
 
 ## 1. Prepare the release and Firebase push setup
 
@@ -10,15 +10,15 @@ Build the `prod` flavor of `../delivery-app`.
    Decide whether the app is free or paid and which countries to support.
 2. In **Firebase console → Project settings → Your apps**, register an Android
    app with package `app.iowetea.delivery`. Download its
-   `google-services.json` into `../delivery-app/android/app/`. The current
+   `google-services.json` into `../app/android/app/`. The current
    file still targets an **old package ID** and must be replaced. If you
    distribute staging, register `app.iowetea.delivery.staging` separately
    and use a configuration containing both clients or flavor-specific files.
    The backend's Firebase service account must use the same project as the
    Android app so it can send FCM messages.
 3. Create a private **upload keystore** and copy
-   `../delivery-app/android/key.properties.example` to the ignored
-   `../delivery-app/android/key.properties`, then set its values. Store builds
+   `../app/android/key.properties.example` to the ignored
+   `../app/android/key.properties`, then set its values. Store builds
    use that release signing configuration; local release APKs without the file
    still use the debug key and are not ready for Play. Back up the upload
    key/passwords securely. If you do not have an upload key yet, generate one
@@ -32,7 +32,7 @@ Build the `prod` flavor of `../delivery-app`.
    Console push capability switch**. Android push uses Firebase Cloud
    Messaging and, on supported devices, Google Play services. The app asks
    for notification permission during its notification flow.
-5. From `../delivery-app`, run `scripts/build-store.sh android` to increment
+5. From `../app`, run `scripts/build-store.sh android` to increment
    the build number and produce the signed production AAB. On macOS,
    `scripts/build-store.sh` builds both the AAB and iOS IPA. Install the AAB
    through an internal Play test on a physical Android phone. Sign in, enable

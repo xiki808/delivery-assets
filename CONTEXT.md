@@ -1,17 +1,24 @@
-# IOweTea Studio Assets Context
+# IOweTea Create Assets Context
 
 This repository follows the static-file layout of `iowetea/assets`. GitHub
 Pages serves files from the root of `main` with no build step. The Flutter app
-is `../delivery-app`; the dashboard is `../delivery-frontend`; the API is
-`../delivery-backend`.
+is `../app`; the dashboard is `../frontend`; the API is
+`../backend`.
 
-`brand/studio.svg` is the Studio mark: shared cup, leaf and teabag, a code
+`brand/create.svg` is the Create mark: shared cup, leaf and teabag, a code
 symbol on the teabag, and three landscape workspaces below the cup that progress
 from prompt to forming content to a finished interface. Run
 `bash store/generate.sh` to rebuild the icon and promotional artwork from it.
 The square icon centers the combined cup and leaf with equal opposite margins
-to its border; the handle and Studio workspaces below the cup are excluded from
+to its border; the handle and Create workspaces below the cup are excluded from
 that measurement.
+The icon shares the family's deep green-black `#0A0F0A` base, warm white cup
+outlines, green leaf, and amber teabag. Its liquid and project cards use Create
+blue `#6F8FE0`.
+`brand/create-light.svg`, `brand/icon-mark-light.svg`, and
+`brand/icon-light.svg` provide the matching light mark on a warm `#F5F2EB`
+base with charcoal outlines. `bash store/generate.sh` exports 1024 and 512
+pixel light PNGs under `brand/`. The dark icon remains the store default.
 These asset changes are staged ahead of the app and dashboard rename. The 36
 screenshots and console worksheets still show Delivery, so review those with
 the product rollout before publishing a rebranded listing.

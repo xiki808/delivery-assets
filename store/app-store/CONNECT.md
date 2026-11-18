@@ -2,7 +2,7 @@
 
 Prepared for a **new** iOS app, bundle ID `app.iowetea.delivery`. This is a
 copy-and-check guide, not a record of values already saved in Apple Developer
-or App Store Connect. Build the `prod` flavor of `../delivery-app`.
+or App Store Connect. Build the `prod` flavor of `../app`.
 
 ## 1. Apple Developer, signing, and push notifications
 
@@ -14,7 +14,7 @@ or App Store Connect. Build the `prod` flavor of `../delivery-app`.
    `app.iowetea.delivery`. Enable **Push Notifications** for that ID. If
    distributing staging, register `app.iowetea.delivery.staging` separately
    and enable Push Notifications there too.
-3. On the Mac, open `../delivery-app/ios/Runner.xcworkspace`. Under the
+3. On the Mac, open `../app/ios/Runner.xcworkspace`. Under the
    **Runner** target's **Signing & Capabilities**, select your team and add or
    confirm **Push Notifications** and **Background Modes** with **Remote
    notifications** and **Background fetch**. Confirm the `prod` scheme uses
@@ -31,7 +31,7 @@ or App Store Connect. Build the `prod` flavor of `../delivery-app`.
    and production.
 6. Register the production iOS app in that Firebase project with bundle ID
    `app.iowetea.delivery`, then verify
-   `../delivery-app/ios/GoogleService-Info.plist` was downloaded for that app.
+   `../app/ios/GoogleService-Info.plist` was downloaded for that app.
    Its current `BUNDLE_ID` matches, but the plist must also belong to the
    same Firebase project as the backend. For staging, register its separate
    bundle ID and put its plist at
@@ -192,7 +192,7 @@ production service.
 1. On the Mac, update the version/build number, install Flutter/CocoaPods
    dependencies, and test login, attachments, external links, account deletion,
    icon, and notifications on physical iPhone; check iPad layout too.
-2. From `../delivery-app` on macOS, run `scripts/build-store.sh` for both
+2. From `../app` on macOS, run `scripts/build-store.sh` for both
    stores, or `scripts/build-store.sh ios` for only the IPA. This increments
    the `pubspec.yaml` build number. You can also archive the `prod` scheme in
    Xcode. Validate bundle ID, production

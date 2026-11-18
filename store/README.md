@@ -1,7 +1,7 @@
 # Store submission files
 
 The production Android package and iOS bundle ID are `app.iowetea.delivery`.
-The matching launcher icon is embedded in `../delivery-app`; this repository
+The matching launcher icon is embedded in `../app`; this repository
 holds the source and store artwork.
 
 | File | Use |
@@ -21,8 +21,8 @@ holds the source and store artwork.
 | `app-store/CONNECT.md` | Copy-ready App Store listing and review checklist |
 | `../web-documents/*.html` | Public policy, support, and deletion URLs |
 
-The icon and promotional graphics use the IOweTea Studio cup mark from
-`brand/studio.svg`. `brand/icon-mark.svg` places it on a transparent square
+The icon and promotional graphics use the IOweTea Create cup mark from
+`brand/create.svg`. `brand/icon-mark.svg` places it on a transparent square
 using the same cup-and-leaf spacing as the icon. To regenerate its SVG layouts
 and PNGs with ImageMagick:
 
@@ -33,9 +33,14 @@ bash store/generate.sh
 The Play feature graphic and optional App Store creatives repeat the approved
 prompt → forming → finished progression with the line “From prompt to
 project.” The icon marks use the shared cup-and-leaf centering rule.
+The icon shares the family's dark base, warm white cup outline, green leaf,
+and amber teabag; Create blue distinguishes its liquid and project cards.
+The matching light icon is exported as `brand/icon-light-1024.png` and
+`brand/icon-light-512.png`; the store listing keeps the dark icon until the app
+uses a light mode.
 
 The screenshots and store listing worksheets still show Delivery. Update and
-review them alongside the app and dashboard rename before submitting a Studio
+review them alongside the app and dashboard rename before submitting a Create
 listing.
 
 The 36 screenshots render the actual Vue dashboard in Chromium with fictional
@@ -46,7 +51,7 @@ The capture script intercepts API calls locally and does not use a production
 account. To regenerate them from this workspace:
 
 ```bash
-cd ../delivery-frontend && npm run dev -- --host 127.0.0.1 --port 5190
+cd ../frontend && npm run dev -- --host 127.0.0.1 --port 5190
 # In another terminal:
 chromium --headless=new --no-sandbox --remote-debugging-port=9223 --user-data-dir=/tmp/delivery-store-capture-chromium about:blank
 # In another terminal, from delivery-assets:
@@ -78,7 +83,7 @@ whose layout or safe area differs from the app.
 4. Review all three public pages, especially the privacy policy's operator,
    retention, and provider disclosures, against the production service.
    Publish this repo with GitHub Pages, then open each URL in a private browser.
-5. Build signed release binaries from `../delivery-app` and check the icon,
+5. Build signed release binaries from `../app` and check the icon,
    Firebase configuration, notifications, login, and external document links.
    The current Android `release` build still uses the debug signing key; set up
    a production keystore before uploading an app bundle.

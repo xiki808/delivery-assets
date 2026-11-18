@@ -1,7 +1,7 @@
-# IOweTea Studio assets
+# IOweTea Create assets
 
-Public static files and store submission material for the IOweTea Studio mobile app
-(`../delivery-app`). Publish this repository from the root of `main` with
+Public static files and store submission material for the IOweTea Create mobile app
+(`../app`). Publish this repository from the root of `main` with
 GitHub Pages. The public base URL is
 `https://xiki808.github.io/delivery-assets/` once Pages is enabled.
 
