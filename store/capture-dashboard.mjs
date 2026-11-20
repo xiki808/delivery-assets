@@ -45,7 +45,7 @@ const fixture = String.raw`(() => {
     if (path === "/api/account/me") return { email: "avery@example.test", blocked: false, tier: { label: "Business", features: { push_notifications: true, suggested_tasks: true, tuning: true }, limits: {} } };
     if (path === "/api/overview") return { machines: [machine], workers, task_queue: queue };
     if (path === "/api/worker") return workers;
-    if (path === "/api/delivery/board") return { machines: [{ machine_id: machine.machine_id, rev: 1, tasks: board }] };
+    if (path === "/api/create/board") return { machines: [{ machine_id: machine.machine_id, rev: 1, tasks: board }] };
     if (path === "/api/task") return search.get("status") === "queue" ? queue : [];
     if (path === "/api/project") return {
       machine_id: machine.machine_id,

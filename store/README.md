@@ -30,17 +30,17 @@ and PNGs with ImageMagick:
 bash store/generate.sh
 ```
 
-The Play feature graphic and optional App Store creatives repeat the approved
+The Play feature graphic and optional App Store creatives use a supporting
 prompt → forming → finished progression with the line “From prompt to
-project.” The icon marks use the shared cup-and-leaf centering rule.
-The icon shares the family's dark base, warm white cup outline, green leaf,
-and amber teabag; Create blue distinguishes its liquid and project cards.
-The matching light icon is exported as `brand/icon-light-1024.png` and
-`brand/icon-light-512.png`; the store listing keeps the dark icon until the app
-uses a light mode.
+project.” The icon uses the selected **Merge to release** character and the
+shared cup-and-leaf centering rule. The icon shares the family's dark base,
+warm white cup outline, green leaf, and amber teabag; Ocean Blue `#327F99`
+distinguishes its liquid, and pale ocean `#73B2C6` marks the release output.
+The dashboard also uses the generated `brand/icon-light.svg` on light surfaces.
+The store listing uses the dark icon.
 
-The screenshots and store listing worksheets still show Delivery. Update and
-review them alongside the app and dashboard rename before submitting a Create
+The store listing worksheets use IOweTea Create. Regenerate and review the
+screenshots after publishing the renamed dashboard before submitting a Create
 listing.
 
 The 36 screenshots render the actual Vue dashboard in Chromium with fictional
@@ -53,8 +53,8 @@ account. To regenerate them from this workspace:
 ```bash
 cd ../frontend && npm run dev -- --host 127.0.0.1 --port 5190
 # In another terminal:
-chromium --headless=new --no-sandbox --remote-debugging-port=9223 --user-data-dir=/tmp/delivery-store-capture-chromium about:blank
-# In another terminal, from delivery-assets:
+chromium --headless=new --no-sandbox --remote-debugging-port=9223 --user-data-dir=/tmp/iowetea-create-store-capture-chromium about:blank
+# In another terminal, from iowetea-create-assets:
 node store/capture-dashboard.mjs
 # To recapture one set: CAPTURE_DEVICE=google-play/tablet-10 node store/capture-dashboard.mjs
 ```

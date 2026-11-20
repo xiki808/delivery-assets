@@ -1,4 +1,4 @@
-# Google Play Console worksheet — Delivery
+# Google Play Console worksheet — IOweTea Create
 
 Prepared for a **new** Android app, package `app.iowetea.delivery`. This is
 a copy-and-check guide, not a record of values already saved in Play Console.
@@ -45,7 +45,7 @@ private task data outside this public repository.
 
 ## 2. Create the Play Console app and listing
 
-In **All apps → Create app**, enter `Delivery`, select your primary language,
+In **All apps → Create app**, enter `IOweTea Create`, select your primary language,
 choose **App** and **Free** or **Paid**, and accept the declarations shown.
 Confirm the first uploaded AAB uses package `app.iowetea.delivery`; this
 sets the Play package name. Follow every remaining **Dashboard → Set up your
@@ -55,24 +55,24 @@ Under **Store presence → Main store listing** and **Store settings**, enter:
 
 | Field | Value to enter |
 | --- | --- |
-| App name | `Delivery` |
+| App name | `IOweTea Create` |
 | Short description | `Follow development tasks and respond when your agent needs you.` |
 | App type / category | App / Productivity |
-| Contact email | `info.iowetea@gmail.com` |
-| Website | `https://delivery.iowetea.com` |
-| Privacy policy URL | `https://xiki808.github.io/delivery-assets/web-documents/privacy-policy.html` |
-| Account-deletion URL (App content) | `https://xiki808.github.io/delivery-assets/web-documents/account-deletion.html` |
+| Contact email | `create.support@iowetea.com` |
+| Website | `https://create.iowetea.com` |
+| Privacy policy URL | `https://xiki808.github.io/iowetea-create-assets/web-documents/privacy-policy.html` |
+| Account-deletion URL (App content) | `https://xiki808.github.io/iowetea-create-assets/web-documents/account-deletion.html` |
 
 Full description:
 
 ```text
-Delivery puts your development tasks in reach when you are away from your computer. Sign in to the same dashboard you use in your browser to follow work, read task updates, and answer questions from your agents.
+IOweTea Create puts your development tasks in reach when you are away from your computer. Sign in to the same dashboard you use in your browser to follow work, read task updates, and answer questions from your agents.
 
 When a task needs your input or becomes blocked, the app can send a phone notification. Tap a notification to open the relevant task. You can also request a one-time notification when a task completes. Notifications are optional and depend on your account's features and device settings.
 
 The dashboard also lets you review projects, machines, agents, and task history. Available controls depend on your account and connected development setup.
 
-A Delivery account is required. Account access is currently arranged through the Delivery team; this app does not offer self-service sign-up.
+An IOweTea Create account is required. Account access is currently arranged through the IOweTea Create team; this app does not offer self-service sign-up.
 ```
 
 Upload `icon-512.png`, `feature-graphic.png`, and the six images in
@@ -112,7 +112,7 @@ names out of final screenshots.
   for your app/account, such as data practices or special app categories.
 - **Permissions:** explain `POST_NOTIFICATIONS` as optional task alerts if
   asked. Check all declarations against the final merged manifest. Do not
-  reuse IOweTea's VPN, camera, or foreground-service answers: Delivery does
+  reuse IOweTea's VPN, camera, or foreground-service answers: IOweTea Create does
   not have those features.
 
 Publish this repo through GitHub Pages before entering policy/deletion URLs.

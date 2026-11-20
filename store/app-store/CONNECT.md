@@ -1,4 +1,4 @@
-# App Store Connect worksheet — Delivery
+# App Store Connect worksheet — IOweTea Create
 
 Prepared for a **new** iOS app, bundle ID `app.iowetea.delivery`. This is a
 copy-and-check guide, not a record of values already saved in Apple Developer
@@ -7,7 +7,7 @@ or App Store Connect. Build the `prod` flavor of `../app`.
 ## 1. Apple Developer, signing, and push notifications
 
 1. Enroll in the Apple Developer Program and accept pending App Store Connect
-   agreements. Decide the actual legal seller and confirm that `Delivery` is
+   agreements. Decide the actual legal seller and confirm that `IOweTea Create` is
    available as an app name.
 2. In **Apple Developer → Certificates, Identifiers & Profiles → Identifiers
    → + → App IDs → App**, register an **explicit** ID
@@ -27,7 +27,7 @@ or App Store Connect. Build the `prod` flavor of `../app`.
    enabled. Download the `.p8` once and record the Key ID and Team ID
    privately. In **Firebase console → Project settings → Cloud Messaging →
    Apple app configuration**, upload the key, Key ID, and Team ID to the
-   Firebase project Delivery uses. An APNs auth key supports both development
+   Firebase project IOweTea Create uses. An APNs auth key supports both development
    and production.
 6. Register the production iOS app in that Firebase project with bundle ID
    `app.iowetea.delivery`, then verify
@@ -52,7 +52,7 @@ In **App Store Connect → Apps → + → New App**, select **iOS** and enter:
 
 | Field | Value to enter |
 | --- | --- |
-| Name | `Delivery` (subject to availability) |
+| Name | `IOweTea Create` (subject to availability) |
 | Primary language | English (UK), if that is your intended listing language |
 | Bundle ID | `app.iowetea.delivery` |
 | SKU | `app.iowetea.delivery` (suggested internal choice) |
@@ -70,22 +70,22 @@ Complete EU trader status and any other regional prompts that apply.
 | --- | --- |
 | Subtitle | `Your tasks, wherever you are` |
 | Keywords | `development,tasks,projects,agents,workflow,notifications` |
-| Support URL | `https://xiki808.github.io/delivery-assets/web-documents/support.html` |
-| Privacy Policy URL | `https://xiki808.github.io/delivery-assets/web-documents/privacy-policy.html` |
-| Marketing URL (optional) | `https://delivery.iowetea.com` |
-| Privacy Choices URL (optional, if offered) | `https://xiki808.github.io/delivery-assets/web-documents/account-deletion.html` |
+| Support URL | `https://xiki808.github.io/iowetea-create-assets/web-documents/support.html` |
+| Privacy Policy URL | `https://xiki808.github.io/iowetea-create-assets/web-documents/privacy-policy.html` |
+| Marketing URL (optional) | `https://create.iowetea.com` |
+| Privacy Choices URL (optional, if offered) | `https://xiki808.github.io/iowetea-create-assets/web-documents/account-deletion.html` |
 | Version | Match the signed build's `CFBundleShortVersionString` |
 
 Description (plain text):
 
 ```text
-Stay close to your development work from your iPhone or iPad. Delivery opens the same dashboard you use in your browser, so you can follow tasks, read updates, and respond when an agent needs your input.
+Stay close to your development work from your iPhone or iPad. IOweTea Create opens the same dashboard you use in your browser, so you can follow tasks, read updates, and respond when an agent needs your input.
 
 Enable optional task notifications to hear when a task sends a message, becomes blocked, or reaches completion after you request an alert. Tap a notification to return to the relevant task.
 
 Review projects, machines, agents, and task history from one place. Available features depend on your account and connected development setup.
 
-A Delivery account is required. Contact the Delivery team for access.
+An IOweTea Create account is required. Contact the IOweTea Create team for access.
 ```
 
 Promotional text is optional. Upload the six images in `iphone/`
@@ -117,7 +117,7 @@ screenshots above and are not required to publish the app.
   machines, and account branches. Test this with a disposable account in the
   final build; the action cannot be undone. The public deletion page retains
   an email route for users who cannot sign in. Copies on users' own machines
-  or external providers are outside Delivery's server cleanup. Do not claim
+  or external providers are outside IOweTea Create's server cleanup. Do not claim
   that those copies are automatically deleted.
 - **Export compliance:** after uploading the iOS build, open **TestFlight →
   Builds → iOS → the build**. If it shows **Missing Compliance**, choose
@@ -148,19 +148,19 @@ put credentials in this repository or a publicly accessible recording.
 ```text
 SCREEN RECORDING: [reviewer-accessible HTTPS video URL]. Captured on physical [device model], [OS version], submitted build [version/build]. Starts at app launch; shows sign-in, sample task and response, Account/notifications, sign-out, and disposable-account deletion. [Include a real push and tap-through if enabled.]
 
-PURPOSE AND AUDIENCE: Delivery lets developers and teams monitor and respond to AI-agent work on connected development machines. The app opens the hosted dashboard and optionally alerts users to task messages, blocked tasks, and requested completion updates. It helps users act on work away from their workstation. Customer accounts are provisioned across organizations; this is not an employee-only app.
+PURPOSE AND AUDIENCE: IOweTea Create lets developers and teams monitor and respond to AI-agent work on connected development machines. The app opens the hosted dashboard and optionally alerts users to task messages, blocked tasks, and requested completion updates. It helps users act on work away from their workstation. Customer accounts are provisioned across organizations; this is not an employee-only app.
 
-ACCESS: Use the main credentials in Sign-in required. There is no in-app registration; Delivery provisions accounts. This [tier] review account contains [sample project/tasks] on [connected machine available during review]. Open Overview > Workflow/Tasks > [task] > Messages; [steps to respond/create a task]. Open Account, enable notifications, and allow the iOS prompt. To trigger and open a push: [exact steps]. Sample files: [none or location]. Extra authentication/setup: [none or steps].
+ACCESS: Use the main credentials in Sign-in required. There is no in-app registration; IOweTea Create provisions accounts. This [tier] review account contains [sample project/tasks] on [connected machine available during review]. Open Overview > Workflow/Tasks > [task] > Messages; [steps to respond/create a task]. Open Account, enable notifications, and allow the iOS prompt. To trigger and open a push: [exact steps]. Sample files: [none or location]. Extra authentication/setup: [none or steps].
 
 ACCOUNT DELETION: Sign out, then sign in with disposable account [email] / [password]. Open Account > Delete account, enter its email/password, and confirm Delete permanently. The account is deleted and signed out. The main account remains available.
 
-CONTENT AND PAYMENT: Tasks, attachments, and messages are private account workspace content. There is no public feed or user-to-user messaging. There is no in-app purchase, checkout, or self-service upgrade; Delivery assigns account tiers manually.
+CONTENT AND PAYMENT: Tasks, attachments, and messages are private account workspace content. There is no public feed or user-to-user messaging. There is no in-app purchase, checkout, or self-service upgrade; IOweTea Create assigns account tiers manually.
 
-EXTERNAL SERVICES: Delivery hosted dashboard/API and the connected orchestration machine provide projects/tasks. Firebase Cloud Messaging and Apple Push Notification service provide optional alerts. The review machine's AI runtime is [actual provider/runtime]. Connected repository/store services used here: [names or none]. Delivery backend handles email/password sign-in; there is no social sign-in or payment processor.
+EXTERNAL SERVICES: IOweTea Create hosted dashboard/API and the connected orchestration machine provide projects/tasks. Firebase Cloud Messaging and Apple Push Notification service provide optional alerts. The review machine's AI runtime is [actual provider/runtime]. Connected repository/store services used here: [names or none]. IOweTea Create backend handles email/password sign-in; there is no social sign-in or payment processor.
 
 REGIONS: Core features work the same in all available regions. Public pages support English, French, Italian, German, and Spanish; the signed-in dashboard is English. Access varies by account tier, not region. [Add any actual regional restrictions.]
 
-REGULATED CONTENT / RIGHTS: Delivery provides no regulated services. Review sample projects/content are [ours / used with permission]. [If other protected material appears, attach authorization documents.]
+REGULATED CONTENT / RIGHTS: IOweTea Create provides no regulated services. Review sample projects/content are [ours / used with permission]. [If other protected material appears, attach authorization documents.]
 
 DEVICE QA: Submitted build tested on physical [device models and OS versions; include iPad].
 ```

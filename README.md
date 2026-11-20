@@ -3,7 +3,7 @@
 Public static files and store submission material for the IOweTea Create mobile app
 (`../app`). Publish this repository from the root of `main` with
 GitHub Pages. The public base URL is
-`https://xiki808.github.io/delivery-assets/` once Pages is enabled.
+`https://xiki808.github.io/iowetea-create-assets/` once Pages is enabled.
 
 | Directory | Purpose |
 | --- | --- |
@@ -16,5 +16,5 @@ Start with [store/README.md](store/README.md). It records the assets already
 prepared and the remaining submission checks. Public URLs will return 404 until
 GitHub Pages is enabled and these files are published. Review the legal pages
 against production data handling before entering their URLs in either store.
-The assets are staged for the new brand; the app UI, screenshots, and store
-listing worksheets still use Delivery until the product rename is completed.
+The app UI and store listing worksheets now use IOweTea Create in source.
+Refresh screenshots from the renamed app before store submission.
