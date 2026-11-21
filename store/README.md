@@ -1,6 +1,6 @@
 # Store submission files
 
-The production Android package and iOS bundle ID are `app.iowetea.delivery`.
+The production Android package and iOS bundle ID are `app.iowetea.create`.
 The matching launcher icon is embedded in `../app`; this repository
 holds the source and store artwork.
 

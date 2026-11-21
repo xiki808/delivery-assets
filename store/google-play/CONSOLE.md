@@ -1,6 +1,6 @@
 # Google Play Console worksheet — IOweTea Create
 
-Prepared for a **new** Android app, package `app.iowetea.delivery`. This is
+Prepared for a **new** Android app, package `app.iowetea.create`. This is
 a copy-and-check guide, not a record of values already saved in Play Console.
 Build the `prod` flavor of `../app`.
 
@@ -9,10 +9,10 @@ Build the `prod` flavor of `../app`.
 1. Complete Play developer account verification and any pending agreements.
    Decide whether the app is free or paid and which countries to support.
 2. In **Firebase console → Project settings → Your apps**, register an Android
-   app with package `app.iowetea.delivery`. Download its
+   app with package `app.iowetea.create`. Download its
    `google-services.json` into `../app/android/app/`. The current
    file still targets an **old package ID** and must be replaced. If you
-   distribute staging, register `app.iowetea.delivery.staging` separately
+   distribute staging, register `app.iowetea.create.staging` separately
    and use a configuration containing both clients or flavor-specific files.
    The backend's Firebase service account must use the same project as the
    Android app so it can send FCM messages.
@@ -47,7 +47,7 @@ private task data outside this public repository.
 
 In **All apps → Create app**, enter `IOweTea Create`, select your primary language,
 choose **App** and **Free** or **Paid**, and accept the declarations shown.
-Confirm the first uploaded AAB uses package `app.iowetea.delivery`; this
+Confirm the first uploaded AAB uses package `app.iowetea.create`; this
 sets the Play package name. Follow every remaining **Dashboard → Set up your
 app** task, as requirements can vary by account and release.
 

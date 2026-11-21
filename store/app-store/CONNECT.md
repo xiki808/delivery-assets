@@ -1,6 +1,6 @@
 # App Store Connect worksheet — IOweTea Create
 
-Prepared for a **new** iOS app, bundle ID `app.iowetea.delivery`. This is a
+Prepared for a **new** iOS app, bundle ID `app.iowetea.create`. This is a
 copy-and-check guide, not a record of values already saved in Apple Developer
 or App Store Connect. Build the `prod` flavor of `../app`.
 
@@ -11,14 +11,14 @@ or App Store Connect. Build the `prod` flavor of `../app`.
    available as an app name.
 2. In **Apple Developer → Certificates, Identifiers & Profiles → Identifiers
    → + → App IDs → App**, register an **explicit** ID
-   `app.iowetea.delivery`. Enable **Push Notifications** for that ID. If
-   distributing staging, register `app.iowetea.delivery.staging` separately
+   `app.iowetea.create`. Enable **Push Notifications** for that ID. If
+   distributing staging, register `app.iowetea.create.staging` separately
    and enable Push Notifications there too.
 3. On the Mac, open `../app/ios/Runner.xcworkspace`. Under the
    **Runner** target's **Signing & Capabilities**, select your team and add or
    confirm **Push Notifications** and **Background Modes** with **Remote
    notifications** and **Background fetch**. Confirm the `prod` scheme uses
-   `app.iowetea.delivery` and a matching distribution profile/certificate.
+   `app.iowetea.create` and a matching distribution profile/certificate.
 4. Confirm the *signed Release-prod archive* has an `aps-environment`
    entitlement of `production`. The source `Runner.entitlements` now says
    `production`, but the uploaded archive's signed entitlement still needs
@@ -30,7 +30,7 @@ or App Store Connect. Build the `prod` flavor of `../app`.
    Firebase project IOweTea Create uses. An APNs auth key supports both development
    and production.
 6. Register the production iOS app in that Firebase project with bundle ID
-   `app.iowetea.delivery`, then verify
+   `app.iowetea.create`, then verify
    `../app/ios/GoogleService-Info.plist` was downloaded for that app.
    Its current `BUNDLE_ID` matches, but the plist must also belong to the
    same Firebase project as the backend. For staging, register its separate
@@ -54,8 +54,8 @@ In **App Store Connect → Apps → + → New App**, select **iOS** and enter:
 | --- | --- |
 | Name | `IOweTea Create` (subject to availability) |
 | Primary language | English (UK), if that is your intended listing language |
-| Bundle ID | `app.iowetea.delivery` |
-| SKU | `app.iowetea.delivery` (suggested internal choice) |
+| Bundle ID | `app.iowetea.create` |
+| SKU | `app.iowetea.create` (suggested internal choice) |
 | User access | Choose the appropriate team access |
 
 Create this record before uploading a build. In **App Information**, choose
